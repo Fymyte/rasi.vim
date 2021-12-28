@@ -19,13 +19,7 @@ setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
 setlocal commentstring=//\ %s
 setlocal formatoptions-=t
 setlocal formatoptions+=croql
-setlocal nospell
-setlocal foldmethod=indent
-setlocal tabstop=4
-setlocal softtabstop=4
-setlocal expandtab
-setlocal shiftwidth=4
-setlocal textwidth=0
+setlocal iskeyword+=-
 " }}}
 
 let b:undo_ftplugin = "setl com< cms< fo< spell< fdm< ts< sts< et< sw< tw< "

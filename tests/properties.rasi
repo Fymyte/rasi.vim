@@ -102,6 +102,9 @@ reference {
     ref: @ref;
     refbad: other @ref;
     var: var(ref, 10);
+    varrgb: var(ref, rgb(1,1,1));
+    varrec: var(ref, var(ref, 12));
+    varenv: var(ref, env(ref, 12));
     varbad1: var();
     varbad2: var(ref, 12, other);
 }
@@ -127,7 +130,10 @@ env {
     envvar2: ${A21};
     envbad: ${'3a};
     env1: env(BG, #123);
+    envnb: env(A, 1);
     env2: env(A21, rgb(1,1,1));
+    envvar: env(A21, var(ref, 1));
+    envrec: env(A21, env(ref, 1));
     envbad2: env(la', other);
 }
 
@@ -138,6 +144,10 @@ inher {
 @import "another-file"
 @theme "this-is-a-theme"
 
+state selected.active {
+
+}
+
 /*
 min-width: load when width is bigger or equal then value.
 max-width: load when width is smaller then value.
@@ -147,7 +157,7 @@ min-aspect-ratio load when aspect ratio is over value.
 max-aspect-ratio: load when aspect ratio is under value.
 monitor-id: The monitor id, see rofi -help for id's.
 */
-@media (min-with:120) {
+@media (min-width:120px) {
 
 }
 
