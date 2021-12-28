@@ -18,6 +18,7 @@ use {
 }
 ```
 
-## Releated
+## Thanks
+Thanks to @ii14 and @CantoroMC for base plugin
 This project is based on
 [ii14/vim-rasi](https://github.com/ii14/vim-rasi)
