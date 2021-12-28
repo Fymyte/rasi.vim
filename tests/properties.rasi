@@ -1,0 +1,268 @@
+/*
+ *
+ * Author  : Aditya Shakya
+ * Mail    : adi1090x@gmail.com
+ * Github  : @adi1090x
+ * Twitter : @adi1090x
+ *
+ */
+
+
+strings {
+    string1: "this is a string";
+    string2: "this\" is more complicated";
+}
+
+intergers-reals {
+    int: 1;
+    real1: 1.1;
+}
+
+bool {
+    boolt: true;
+    boolf: false;
+}
+
+images {
+    img1: url("path/to/image");
+    img2: url("path/to/\"image\"");
+    img3: url("path/to/image", none);
+    img4: url("path/to/image", both);
+    img5: url("path/to/image", width);
+    img6: url("path/to/image", height);
+    imgbad: url("path/to/image", other);
+
+    grad1: linear-gradient(#111,#111);
+    grad2: linear-gradient(top, #111,#111);
+    grad3: linear-gradient(left, #111,#111);
+    grad4: linear-gradient(right, #111,#111);
+    grad5: linear-gradient(bottom, #111,#111);
+    gradbad: linear-gradient(other, #111,#111);
+    gradangle1: linear-gradient(1deg, #111,#111);
+    gradangle2: linear-gradient(1rad, #111,#111);
+    gradangle3: linear-gradient(1grad, #111,#111);
+    gradanglebad: linear-gradient(1other, #111,#111);
+}
+
+colors {
+    hexa: #12121212;
+    hex: #123aaa;
+    hex3: #FFF;
+    rgbbad: rgb(1, 2, 3a);
+    rgb: rgb(1, 2, 3);
+    rgbabad: rgba(1, 2, 3);
+    rgba: rgba(1, 2, 3, 10%);
+    hsl: hsl(60, 59%, 60%);
+    hsla: hsla(60, 59%, 60%, 50%);
+    hwb: hwb(60, 59%, 60%);
+    hwba: hwba(60, 59%, 60%, 59%);
+    hwba: hwba(60, 59%, 60%);
+    plain1: Blue;
+    plain2: IndianRed;
+
+}
+
+text-style {
+    bold: bold;
+    italic: italic;
+    underline: underline;
+    strikethrough: strikethrough;
+    none: none;
+    bad: other;
+}
+
+line-style {
+    dash: dash;
+    solid: solid;
+    bad: other;
+}
+
+distance {
+    pix: 2px;
+    pixbad: 2.5px;
+    em: 2.4em;
+    ch: 3.1ch;
+    percent: 21.2%;
+    mm: 2mm;
+    mmbad: 3.3mm;
+    calc: calc(100%-23px);
+}
+
+position {
+    center: center;
+    east: east;
+    north: north;
+    west: west;
+    south: south;
+    northeast: north east;
+    southwest: south west;
+}
+
+reference {
+    ref: @ref;
+    refbad: other @ref;
+    var: var(ref, 10);
+    varbad1: var();
+    varbad2: var(ref, 12, other);
+}
+
+orientation {
+    horizontal: horizontal;
+    vertical: vertical;
+}
+
+cursor {
+    default: default;
+    pointer: pointer;
+    text: text;
+}
+
+list {
+    one: [ onekeyword ];
+    more: [ first, second, third ];
+}
+
+env {
+    envvar1: ${BG};
+    envvar2: ${A21};
+    envbad: ${'3a};
+    env1: env(BG, #123);
+    env2: env(A21, rgb(1,1,1));
+    envbad2: env(la', other);
+}
+
+inher {
+    inherit: inherit;
+}
+
+@import "another-file"
+@theme "this-is-a-theme"
+
+/*
+min-width: load when width is bigger or equal then value.
+max-width: load when width is smaller then value.
+min-height: load when height is bigger or equal then value.
+max-height: load when height is smaller then value.
+min-aspect-ratio load when aspect ratio is over value.
+max-aspect-ratio: load when aspect ratio is under value.
+monitor-id: The monitor id, see rofi -help for id's.
+*/
+@media (min-with:120) {
+
+}
+
+
+
+configuration {
+  font:                 "Pango DejaVu Sans Mono 12";
+  show-icons:           true;
+  icon-theme:           "Papirus";
+  display-drun:         "";
+  drun-display-format:  "{name}";
+  disable-history:      false;
+  fullscreen:           false;
+  hide-scrollbar:       true;
+  sidebar-mode:         false;
+}
+
+@import "colors.rasi"
+
+window {
+  transparency:                   "real";
+  background-color:               @bg;
+  text-color:                     @fg;
+  border:							0px 0px 0px 0px;
+  border-color:					@ac;
+  border-radius:                  0px;
+  width:							500px;
+  location:                       center;
+  x-offset:                       0;
+  y-offset:                       0;
+}
+
+prompt {
+  enabled: 						true;
+  padding: 						0px;
+  background-color: 				@bga;
+  text-color: 					@ac;
+  font:							"feather 12";
+}
+
+entry {
+  background-color:               @al;
+  text-color:                     @fg;
+  placeholder-color:              @fg;
+  expand:                         true;
+  horizontal-align:               0;
+  placeholder:                    "Search...";
+  padding: 						0px 0px 0px 5px;
+  blink:                          true;
+}
+
+inputbar {
+  children: 						[ prompt, entry ];
+  background-color:               @bga;
+  text-color:                     @fg;
+  expand:                         false;
+  border:							0px 0px 1px 0px;
+  border-radius:                  0px;
+  border-color:					@se;
+  margin:                         0px;
+  padding:                        10px;
+  border-radius:					10px 10px 0px 0px;
+}
+
+listview {
+  background-color:               @al;
+  padding:                        0px;
+  columns:                        1;
+  lines:                          6;
+  spacing:                        5px;
+  cycle:                          true;
+  dynamic:                        true;
+  layout:                         vertical;
+  border-radius:					0px 0px 10px 10px;
+}
+
+
+mainbox {
+    background-color:               @al;
+	border:							0px;
+    border-radius:                  0px;
+	border-color:					@ac;
+    children:                       [ inputbar, listview ];
+    spacing:                       	5px;
+    padding:                        5px;
+}
+
+element {
+    background-color:               @al;
+    text-color:                     @fg;
+    orientation:                    horizontal;
+    border-radius:                  0px;
+	padding: 						8px;
+}
+
+element-icon {
+    size:                           24px;
+    border:                         0px;
+    background-color:               @al;
+    text-color:                     @fg;
+}
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0.5;
+    margin:                         0px 2.5px 0px 2.5px;
+    background-color:               @al;
+    text-color:                     @fg;
+}
+
+element selected {
+    background-color:               @se;
+    text-color:                     @bg;
+	border:							0px 0px 0px 0px;
+    border-radius:                  0px;
+    border-color:                  	@ac;
+}
