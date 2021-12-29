@@ -24,6 +24,10 @@ use {
 }
 ```
 
+## Known issue
+rofi config supports `cmyk()` colors but it is currently not highlighted properly.
+PR are welcome.
+
 ## Thanks
 Thanks to [@ii14](https://github.com/ii14/) and [@CantoroMC](https://github.com/CantoroMC) for base plugin.
 
