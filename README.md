@@ -4,6 +4,12 @@ Add syntax highlighting support for rasi config file
 
 The syntax is based on the [rofi-theme man page](https://man.archlinux.org/man/community/rofi/rofi-theme.5.en). (v1.7.2)
 
+![image](https://user-images.githubusercontent.com/34305318/147615642-b53ac720-9681-41dd-adf7-80816a1a5044.png)
+
+## Dependencies
+**Optionnal**
+- [vim-css-color](https://github.com/ap/vim-css-color) for better color support (see [wiki](https://github.com/Fymyte/rasi.vim/wiki/Integration#colors))
+
 ## Installation
 ### vim-plug
 ```vim 
@@ -19,6 +25,7 @@ use {
 ```
 
 ## Thanks
-Thanks to [@ii14](https://github.com/ii14/) and [@CantoroMC](https://github.com/CantoroMC) for base plugin
+Thanks to [@ii14](https://github.com/ii14/) and [@CantoroMC](https://github.com/CantoroMC) for base plugin.
+
 This project is based on
 [ii14/vim-rasi](https://github.com/ii14/vim-rasi)
