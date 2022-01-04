@@ -10,6 +10,14 @@ The syntax is based on the [rofi-theme man page](https://man.archlinux.org/man/c
 **Optionnal**
 - [vim-css-color](https://github.com/ap/vim-css-color) for better color support (see [wiki](https://github.com/Fymyte/rasi.vim/wiki/Integration#colors))
 
+## [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+A parser for rasi has also been created for neovim users at [Fymyte/tree-sitter-rasi](https://github.com/Fymyte/tree-sitter-rasi). It is not natively supported by [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) but you can use it by following the [advanced setup guide](https://github.com/nvim-treesitter/nvim-treesitter#advanced-setup).
+Don't forget to manually copy queries in your config:
+```sh
+mkdir -p ~/.config/nvim/queries/rasi/
+cp <path to tree-sitter-rasi>/queries/* ~/.config/nvim/queries/rasi/
+```
+
 ## Installation
 ### vim-plug
 ```vim 
