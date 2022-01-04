@@ -17,8 +17,6 @@ let b:did_ftplugin = 1
 " Filetype Options: {{{1
 setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
 setlocal commentstring=//\ %s
-setlocal formatoptions-=t
-setlocal formatoptions+=croql
 setlocal iskeyword+=-
 " }}}
 
