@@ -211,7 +211,7 @@ syn match rasiStateWrapper    display contained transparent '\.\(normal\|active\
 syn keyword rasiState         display contained normal active urgent
 
 
-syn region  rasiThemeSectionContent transparent start="{" end="}" contains=rasiProperty
+syn region  rasiThemeSectionContent transparent start="{" end="}" contains=rasiProperty,rasiComment,rasiCommentL
 syn match rasiProperty transparent '^\s*\S\+\s*:.*;\s*$' keepend contained contains=rasiPropertyId,rasiInvPropertyId,rasiPropertyVal
 syn match rasiInvPropertyId '^[^:]*:'me=e-1 contained
 syn match rasiPropertyId  '^\s*[0-9a-zA-Z-]\+\s*:'me=e-1 contained
