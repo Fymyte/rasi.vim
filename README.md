@@ -11,11 +11,9 @@ The syntax is based on the [rofi-theme man page](https://man.archlinux.org/man/c
 - [vim-css-color](https://github.com/ap/vim-css-color) for better color support (see [wiki](https://github.com/Fymyte/rasi.vim/wiki/Integration#colors))
 
 ## [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-A parser for rasi has also been created for neovim users at [Fymyte/tree-sitter-rasi](https://github.com/Fymyte/tree-sitter-rasi). [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) has builtin support for it by running
-```
-:TSInstall rasi
-```
-or by using `ensure_installed = "all"` in your config for treesitter
+A parser for rasi has also been created for neovim users at [Fymyte/tree-sitter-rasi](https://github.com/Fymyte/tree-sitter-rasi). 
+
+See [wiki](https://github.com/Fymyte/rasi.vim/wiki/Integration#treesitter) for integration.
 
 ## Installation
 ### vim-plug
