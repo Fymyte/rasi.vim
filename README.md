@@ -15,6 +15,7 @@ A parser for rasi has also been created for neovim users at [Fymyte/tree-sitter-
 ```
 :TSInstall rasi
 ```
+or by using `ensure_installed = "all"` in your config for treesitter
 
 ## Installation
 ### vim-plug
