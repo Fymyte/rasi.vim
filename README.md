@@ -34,7 +34,4 @@ rofi config supports `cmyk()` colors but it is currently not highlighted properl
 PR are welcome.
 
 ## Thanks
-Thanks to [@ii14](https://github.com/ii14/) and [@CantoroMC](https://github.com/CantoroMC) for base plugin.
-
-This project is based on
-[ii14/vim-rasi](https://github.com/ii14/vim-rasi)
+- [@CantoroMC](https://github.com/CantoroMC) for base plugin. (repository has been deleted)
