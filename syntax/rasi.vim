@@ -91,7 +91,7 @@ syn cluster rasiPropertyVals  add=rasiEnv,rasiInvEnv,rasiInvEnvVar,rasiEnvVar
 " }}}
 
 " Color {{{
-syn keyword rasiColorK        contained rgb rgba hsl hsla hwb hwba cmyk
+syn keyword rasiColorK        contained rgb[a] hsl[a] hwb[a] cmyk
 
 syn match rasiHexColor        display contained '#\x\{3,4}'
 syn match rasiHexColor        display contained '#\x\{6}'
@@ -100,11 +100,10 @@ syn match rasiInvHexColor     display contained '#\x\{5}\X'he=e-1,me=e-1
 syn match rasiInvHexColor     display contained '#\x\{7}\X'he=e-1,me=e-1
 
 syn match rasiInvRGBColor     display contained 'rgb\(a\)\?([^)]*)'
-syn match rasiRGBColor        display contained transparent 'rgb\(a\)\?(\s*\d\+\s*\(%\)\?\s*,\s*\d\+\s*\(%\)\?\s*,\s*\d\+\s*\(%\)\?\s*\(,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\)\?)' contains=rasiColorK,rasiNumber,rasiDistance
+syn match rasiRGBColor        display contained transparent 'rgb\(a\)\?(\s*\d\+\s*\(%\)\?\s*,\(\s*\d\+\s*\(%\)\?\s*\){2}\(,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\)\?)' contains=rasiColorK,rasiNumber,rasiDistance
 
 syn match rasiInvHSLColor     display contained 'h\(sl\|wb\)\(a\)\?([^)]*)'
-syn match rasiHSLColor        display contained transparent 'h\(sl\|wb\)\(a\)\?(\s*\d\+\(\.\d*\)\?\(deg\|rad\|grad\|turn\)\?\s*\(,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\)\{2})' contains=rasiColorK,rasiNumber,rasiDistance
-syn match rasiHSLAColor       display contained transparent 'h\(sl\|wb\)a(\s*\d\+\(\.\d*\)\?\(deg\|rad\|grad\|turn\)\?\s*\(,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\)\{3})' contains=rasiColorK,rasiNumber,rasiDistance
+syn match rasiHSLColor        display contained transparent 'h\(sl\|wb\)\(a\)\?(\s*\d\+\(\.\d*\)\?\(deg\|rad\|grad\|turn\)\?\s*\(,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\)\{2,3})' contains=rasiColorK,rasiNumber,rasiDistance
 
 
 "this matches doesn't works properly (too long ?)
@@ -131,7 +130,7 @@ syn keyword rasiNamedColor contained
       \ SlateBlue SlateGray SlateGrey Snow SpringGreen SteelBlue Tan Teal Thistle Tomato Turquoise
       \ Violet Wheat White WhiteSmoke Yellow YellowGreen transparent[] "uses `[]` to escape keyword
 
-syn cluster rasiColors        add=rasiHexColor,rasiRGBColor,rasiHSLColor,rasiHSLAColor,rasiCMYKColor,rasiNamedColor
+syn cluster rasiColors        add=rasiHexColor,rasiRGBColor,rasiHSLColor,rasiCMYKColor,rasiNamedColor
 syn cluster rasiColors        add=rasiInvHexColor,rasiInvRGBColor,rasiInvHSLColor,rasiInvCMYKColor
 
 syn cluster rasiPropertyVals  add=@rasiColors

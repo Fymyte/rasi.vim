@@ -58,6 +58,7 @@ colors {
     hwba: hwba(60, 59%, 60%, 59%);
     hwba: hwba(60, 59%, 60%);
     cmyk: cmyk(10%, 10%, 10%, 10%);
+    cmyk: cmyk(10%, 10%, 10%, 10%, 1);
     plain1: Blue;
     plain2: IndianRed;
 
