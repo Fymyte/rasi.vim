@@ -44,20 +44,20 @@ syn cluster rasiPropertyVals add=rasiNumber
 " }}}
 
 " Boolean {{{
-syn keyword rasiBool  display contained true false
+syn keyword rasiBool  contained true false
 
 syn cluster rasiPropertyVals add=rasiBool
 " }}}
 
 " Image {{{
 syn match rasiInvImage        display contained 'url([^)]*)'
-syn keyword rasiImageK        display contained url linear-gradient
+syn keyword rasiImageK        contained url linear-gradient
 
 syn match rasiImage           display contained transparent 'url(\s*"\([^"]\|\\"\)\+"\(\s*,\s*\(none\|both\|width\|height\)\)\?\s*)' contains=rasiImageScale,rasiString,rasiImageK
-syn keyword rasiImageScale  display contained none both width height
+syn keyword rasiImageScale  contained none both width height
 
 syn match rasiImage           display contained transparent 'linear-gradient(\s*\(\(top\|left\|right\|bottom\)\s*,\s*\)\?[^,)]\+\s*\(,\s*[^,)]\+\s*\)\+)' contains=rasiImageDirection,@rasiColors,rasiImageK
-syn keyword rasiImageDirection display contained top left right bottom
+syn keyword rasiImageDirection contained top left right bottom
 
 syn match rasiImage           display contained transparent 'linear-gradient(\s*\d\+\(rad\|grad\|deg\)\s*,\s*[^,)]\+\s*\(,\s*[^,)]\+\s*\)\+)' contains=rasiImageUnit,@rasiColor,@rasiInvColor,rasiNumber,rasiImageK
 syn match rasiImageUnit       display contained '\(rad\|grad\|deg\)\>'
@@ -68,7 +68,7 @@ syn cluster rasiPropertyVals  add=rasiInvImage,rasiImage
 " Reference {{{
 syn match rasiReference       display contained '@[a-zA-Z0-9-]\+'
 
-syn keyword rasiVarReferenceK display contained var
+syn keyword rasiVarReferenceK contained var
 
 syn match rasiInvVarReference display contained 'var([^)]*)'
 syn match rasiVarReference    display contained transparent 'var(\s*[a-zA-Z0-9-]\+\s*,\s*\(\a\+\s*([^)]*)\)\?[^),]*)' contains=rasiVarReferenceK,rasiPropertyIdRef,@rasiPropertyVals
@@ -81,7 +81,7 @@ syn cluster rasiPropertyVals  add=rasiReference,rasiInvVarReference,rasiVarRefer
 syn match rasiInvEnv          display contained '${[^}]*}'
 syn match rasiEnv             display contained '${\w\+}'hs=s+2,he=e-1
 
-syn keyword rasiEnvVarK       display contained env
+syn keyword rasiEnvVarK       contained env
 
 syn match rasiInvEnvVar       display contained 'env([^)]*)'
 syn match rasiEnvVar          display contained transparent 'env(\s*\w\+\s*,\s*\(\a\+([^)]*)\)\?[^),]*)' contains=rasiEnvVarK,rasiEnvRef,@rasiPropertyVals
@@ -91,7 +91,7 @@ syn cluster rasiPropertyVals  add=rasiEnv,rasiInvEnv,rasiInvEnvVar,rasiEnvVar
 " }}}
 
 " Color {{{
-syn keyword rasiColorK      display contained rgb rgba hsl hsla hwb hwba
+syn keyword rasiColorK        contained rgb rgba hsl hsla hwb hwba cmyk
 
 syn match rasiHexColor        display contained '#\x\{3,4}'
 syn match rasiHexColor        display contained '#\x\{6}'
@@ -103,16 +103,16 @@ syn match rasiInvRGBColor     display contained 'rgb\(a\)\?([^)]*)'
 syn match rasiRGBColor        display contained transparent 'rgb\(a\)\?(\s*\d\+\s*\(%\)\?\s*,\s*\d\+\s*\(%\)\?\s*,\s*\d\+\s*\(%\)\?\s*\(,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\)\?)' contains=rasiColorK,rasiNumber,rasiDistance
 
 syn match rasiInvHSLColor     display contained 'h\(sl\|wb\)\(a\)\?([^)]*)'
-syn match rasiHSLColor        display contained transparent 'h\(sl\|wb\)\(a\)\?(\s*\d\+\(\.\d*\)\?\(deg\|rad\|grad\|turn\)\?\s*,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*)' contains=rasiColorK,rasiNumber,rasiDistance
-syn match rasiHSLAColor       display contained transparent 'h\(sl\|wb\)a(\s*\d\+\(\.\d*\)\?\(deg\|rad\|grad\|turn\)\?\s*,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*)' contains=rasiColorK,rasiNumber,rasiDistance
+syn match rasiHSLColor        display contained transparent 'h\(sl\|wb\)\(a\)\?(\s*\d\+\(\.\d*\)\?\(deg\|rad\|grad\|turn\)\?\s*\(,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\)\{2})' contains=rasiColorK,rasiNumber,rasiDistance
+syn match rasiHSLAColor       display contained transparent 'h\(sl\|wb\)a(\s*\d\+\(\.\d*\)\?\(deg\|rad\|grad\|turn\)\?\s*\(,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\)\{3})' contains=rasiColorK,rasiNumber,rasiDistance
 
 
 "this matches doesn't works properly (too long ?)
-"syn match rasiInvCMYKColor  display contained 'cmyk([^)]*)'
-"syn match rasiCMYKColor     display contained 'cmyk(\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\(,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\)\?)'
+syn match rasiInvCMYKColor  display contained 'cmyk([^)]*)'
+syn match rasiCMYKColor     display contained transparent 'cmyk(\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\(,\s*\(\d\(\.\d*\)\?\|\d\{,3}%\)\s*\)\{3,4})' contains=rasiColorK,rasiNumber,rasiDistance
 
 syn case ignore
-syn keyword rasiNamedColor display contained
+syn keyword rasiNamedColor contained
       \ AliceBlue AntiqueWhite Aqua Aquamarine Azure Beige Bisque Black BlanchedAlmond Blue
       \ BlueViolet Brown BurlyWood CadetBlue Chartreuse Chocolate Coral CornflowerBlue Cornsilk
       \ Crimson Cyan DarkBlue DarkCyan DarkGoldenRod DarkGray DarkGrey DarkGreen DarkKhaki DarkMagenta
@@ -131,20 +131,20 @@ syn keyword rasiNamedColor display contained
       \ SlateBlue SlateGray SlateGrey Snow SpringGreen SteelBlue Tan Teal Thistle Tomato Turquoise
       \ Violet Wheat White WhiteSmoke Yellow YellowGreen transparent[] "uses `[]` to escape keyword
 
-syn cluster rasiColors        add=rasiHexColor,rasiRGBColor,rasiHSLColor,rasiHSLAColor,rasiNamedColor
-syn cluster rasiColors        add=rasiInvHexColor,rasiInvRGBColor,rasiInvHSLColor
+syn cluster rasiColors        add=rasiHexColor,rasiRGBColor,rasiHSLColor,rasiHSLAColor,rasiCMYKColor,rasiNamedColor
+syn cluster rasiColors        add=rasiInvHexColor,rasiInvRGBColor,rasiInvHSLColor,rasiInvCMYKColor
 
 syn cluster rasiPropertyVals  add=@rasiColors
 " }}}
 
 " Text-Style {{{
-syn keyword rasiTextStyle display contained bold italic underline strikethrough none
+syn keyword rasiTextStyle contained bold italic underline strikethrough none
 
 syn cluster rasiPropertyVals  add=rasiTextStyle
 " }}}
 
 " Line-Style {{{
-syn keyword rasiLineStyle display contained dash solid
+syn keyword rasiLineStyle contained dash solid
 
 syn cluster rasiPropertyVals  add=rasiLineStyle
 " }}}
@@ -156,7 +156,7 @@ syn match rasiInvDistance     display contained '[+-]\?\d\+\.\d\+\(px\|mm\)'
 syn match rasiDistance        display contained transparent '[-+]\?\d\+\(px\|mm\)' contains=rasiDistanceUnit,rasiNumber
 syn match rasiDistance        display contained transparent '[+-]\?\d\+\(\.\d\+\)\?\(em\|ch\|%\)' contains=rasiDistanceUnit,rasiNumber
 
-syn keyword rasiDistanceCalc  display contained calc nextgroup=rasiDistanceCalcBody
+syn keyword rasiDistanceCalc  contained calc nextgroup=rasiDistanceCalcBody
 syn region rasiDistanceCalcBody display contained start=+(+ end=+)+ contains=rasiDistanceCalcOp,rasiDistance,rasiInvDistance
 syn match rasiDistanceCalcOp  display contained '\(+\|-\|/\|\*\|%\|min\|max\)'
 
@@ -164,19 +164,19 @@ syn cluster rasiPropertyVals  add=rasiInvDistance,rasiDistance,rasiDistanceCalc
 " }}}
 
 " Position {{{
-syn keyword rasiPosition    display contained center east north west south
+syn keyword rasiPosition    contained center east north west south
 
 syn cluster rasiPropertyVals  add=rasiPosition
 " }}}
 
 " Orientation {{{
-syn keyword rasiOrientation   display contained horizontal vertical
+syn keyword rasiOrientation   contained horizontal vertical
 
 syn cluster rasiPropertyVals  add=rasiOrientation
 " }}}
 
 " Cursor {{{
-syn keyword rasiCursor        display contained default pointer text
+syn keyword rasiCursor        contained default pointer text
 
 syn cluster rasiPropertyVals  add=rasiCursor
 " }}}
@@ -188,7 +188,7 @@ syn cluster rasiPropertyVals  add=rasiKeywordList
 " }}}
 
 " Inherit {{{
-syn keyword rasiInherit       display contained inherit children
+syn keyword rasiInherit       contained inherit children
 
 syn cluster rasiPropertyVals  add=rasiInherit
 " }}}
@@ -201,14 +201,14 @@ syn match rasiSectionOpenning transparent '^[^{]\+{'me=e-1 contains=rasiGlobalSe
 syn match rasiGlobalMedia     display contained '^\s*@media' nextgroup=rasiInvMediaBody,rasiMediaBody skipwhite
 syn match rasiInvMediaBody    display contained '([^)]*)'
 syn match rasiMediaBody       display contained '(\s*[a-z-]\+\s*:\s*\d\+\(px\|mm\)\?\s*)' contains=rasiMediaK,rasiNumber,rasiDistance
-syn keyword rasiMediaK        display contained min-width max-width min-height max-height min-aspect-ratio max-aspect-ratio monitor-id
+syn keyword rasiMediaK        contained min-width max-width min-height max-height min-aspect-ratio max-aspect-ratio monitor-id
 
 syn match rasiGlobalSection   '^*'
 syn match rasiWidgetName      display contained '^[a-zA-Z0-9-]\+' nextgroup=rasiVisibleMod skipwhite
 
-syn keyword rasiVisibleMod    display contained normal selected alternate nextgroup=rasiVisibleMod,rasiStateWrapper skipwhite
+syn keyword rasiVisibleMod    contained normal selected alternate nextgroup=rasiVisibleMod,rasiStateWrapper skipwhite
 syn match rasiStateWrapper    display contained transparent '\.\(normal\|active\|urgent\)' contains=rasiState
-syn keyword rasiState         display contained normal active urgent
+syn keyword rasiState         contained normal active urgent
 
 
 syn region  rasiThemeSectionContent transparent start="{" end="}" contains=rasiProperty,rasiComment,rasiCommentL
@@ -247,6 +247,7 @@ hi def link rasiInvColor        rasiError
 hi def link rasiInvHexColor     rasiInvColor
 hi def link rasiInvRGBColor     rasiInvColor
 hi def link rasiInvHSLColor     rasiInvColor
+hi def link rasiInvCMYKColor    rasiInvColor
 
 hi def link rasiTextStyle       Keyword
 hi def link rasiLineStyle       Keyword
