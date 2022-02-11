@@ -258,6 +258,7 @@ hi def link rasiDistanceCalcOp  Operator
 hi def link rasiInvDistance     rasiError
 
 hi def link rasiPosition        Keyword
+hi def link rasiOrientation     Keyword
 hi def link rasiCursor          Keyword
 
 hi def link rasiReference       Identifier
