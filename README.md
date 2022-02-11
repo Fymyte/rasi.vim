@@ -29,9 +29,5 @@ use {
 }
 ```
 
-## Known issue
-rofi config supports `cmyk()` colors but it is currently not highlighted properly.
-PR are welcome.
-
 ## Thanks
 - [@CantoroMC](https://github.com/CantoroMC) for base plugin. (repository has been deleted)
