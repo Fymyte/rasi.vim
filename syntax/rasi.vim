@@ -195,28 +195,31 @@ syn cluster rasiPropertyVals  add=rasiInherit
 syn match rasiGlobalImport    display '^\s*@\(import\|theme\)' nextgroup=rasiString skipwhite
 
 " Section {{{
-syn match rasiSectionOpenning transparent '^[^{]\+{'me=e-1 contains=rasiGlobalSection,rasiWidgetName,rasiGlobalMedia
+" syn region rasiSection transparent start='^[^{]\+{'me=e-1 end='}' contains=rasiSectionOpenning,rasiSectionContent
+syn match rasiSectionOpenning transparent '^[^{]\+{'me=e-1 contains=rasiGlobalSection,rasiWidgetName,rasiGlobalMedia nextgroup=rasiThemeSectionContent
+" syn match rasiThemeInnerSectionOpenning transparent '^[^:${]\+{'me=e-1 contains=rasiWidgetName nextgroup=rasiThemeInnerSectionContent contained
 
 syn match rasiGlobalMedia     display contained '^\s*@media' nextgroup=rasiInvMediaBody,rasiMediaBody skipwhite
 syn match rasiInvMediaBody    display contained '([^)]*)'
 syn match rasiMediaBody       display contained '(\s*[a-z-]\+\s*:\s*\d\+\(px\|mm\)\?\s*)' contains=rasiMediaK,rasiNumber,rasiDistance
 syn keyword rasiMediaK        contained min-width max-width min-height max-height min-aspect-ratio max-aspect-ratio monitor-id
 
-syn match rasiGlobalSection   '^*'
-syn match rasiWidgetName      display contained '^[a-zA-Z0-9-]\+' nextgroup=rasiVisibleMod skipwhite
+syn match rasiGlobalSection   display contained '^*'
+syn match rasiWidgetName      display contained '[a-zA-Z0-9-]\+' nextgroup=rasiVisibleMod skipwhite
 
 syn keyword rasiVisibleMod    contained normal selected alternate nextgroup=rasiVisibleMod,rasiStateWrapper skipwhite
 syn match rasiStateWrapper    display contained transparent '\.\(normal\|active\|urgent\)' contains=rasiState
 syn keyword rasiState         contained normal active urgent
 
 
-syn region  rasiThemeSectionContent transparent start="{" end="}" contains=rasiProperty,rasiComment,rasiCommentL
-syn match rasiProperty transparent '^\s*\S\+\s*:.*;\s*$' keepend contained contains=rasiPropertyId,rasiInvPropertyId,rasiPropertyVal
+syn region  rasiThemeSectionContent transparent start="{" end="}" contains=rasiProperty,rasiComment,rasiCommentL,rasiSectionOpenning contained
+" syn region  rasiThemeInnerSectionContent transparent start="{" end="}" contains=rasiProperty,rasiComment,rasiCommentL,rasiThemeInnerSectionOpenning contained
+
+syn match rasiProperty transparent '^\s*\S\+\s*:.*;\s*$' keepend contained contains=rasiPropertyId,rasiInvPropertyId,rasiPropertyVal,rasiThemeInnerSectionOpenning
 syn match rasiInvPropertyId '^[^:]*:'me=e-1 contained
 syn match rasiPropertyId  '^\s*[0-9a-zA-Z-]\+\s*:'me=e-1 contained
 syn match rasiInvPropertyVal ':[^;];\s*\S\+\s*$'ms=s+1,hs=s+1
 syn match rasiPropertyVal ':\s*[^;]\+;\s*$'ms=s+1,hs=s+1 contained contains=@rasiPropertyVals
-
 " }}}
 
 

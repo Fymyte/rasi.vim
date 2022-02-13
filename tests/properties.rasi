@@ -139,16 +139,47 @@ env {
     envbad2: env(la', other);
 }
 
-inher {
-    inherit: inherit;
+inher, other {
+  inherit: inherit;
 }
 
+// Comment
 @import "another-file"
 @theme "this-is-a-theme"
 
-state selected.active {
-
+@media (min-width:120px) {
+  children: center;
+  widget selected.normal {
+    children: center;
+  }
+  children: center;
 }
+
+/*
+Mutilines comments
+ */
+
+* {
+  bg:   rgba(240, 240, 0, 100%);
+  ac:   #8EC07CFF;
+}
+
+widget-name selected.active {
+  font:                 "Pango DejaVu Sans Mono 12";
+  show-icons:           true;
+  disable-history:      false;
+  border:               0px 0px 0px 0px;
+  border-color:         @ac;
+  background-color:     @bg;
+  border-radius:        0px;
+  width:                500px;
+  window-size:          var(win-size, 120);
+  location:             center;
+  children:             [ prompt, entry ];
+}
+
+
+
 
 /*
 min-width: load when width is bigger or equal then value.
@@ -159,9 +190,6 @@ min-aspect-ratio load when aspect ratio is over value.
 max-aspect-ratio: load when aspect ratio is under value.
 monitor-id: The monitor id, see rofi -help for id's.
 */
-@media (min-width:120px) {
-
-}
 
 
 
@@ -183,21 +211,21 @@ window {
   transparency:                   "real";
   background-color:               @bg;
   text-color:                     @fg;
-  border:							0px 0px 0px 0px;
-  border-color:					@ac;
+  border:             0px 0px 0px 0px;
+  border-color:         @ac;
   border-radius:                  0px;
-  width:							500px;
+  width:              500px;
   location:                       center;
   x-offset:                       0;
   y-offset:                       0;
 }
 
 prompt {
-  enabled: 						true;
-  padding: 						0px;
-  background-color: 				@bga;
-  text-color: 					@ac;
-  font:							"feather 12";
+  enabled:            true;
+  padding:            0px;
+  background-color:         @bga;
+  text-color:           @ac;
+  font:             "feather 12";
 }
 
 entry {
@@ -207,21 +235,21 @@ entry {
   expand:                         true;
   horizontal-align:               0;
   placeholder:                    "Search...";
-  padding: 						0px 0px 0px 5px;
+  padding:            0px 0px 0px 5px;
   blink:                          true;
 }
 
 inputbar {
-  children: 						[ prompt, entry ];
+  children:             [ prompt, entry ];
   background-color:               @bga;
   text-color:                     @fg;
   expand:                         false;
-  border:							0px 0px 1px 0px;
+  border:             0px 0px 1px 0px;
   border-radius:                  0px;
-  border-color:					@se;
+  border-color:         @se;
   margin:                         0px;
   padding:                        10px;
-  border-radius:					10px 10px 0px 0px;
+  border-radius:          10px 10px 0px 0px;
 }
 
 listview {
@@ -233,17 +261,17 @@ listview {
   cycle:                          true;
   dynamic:                        true;
   layout:                         vertical;
-  border-radius:					0px 0px 10px 10px;
+  border-radius:          0px 0px 10px 10px;
 }
 
 
 mainbox {
     background-color:               @al;
-	border:							0px;
+  border:             0px;
     border-radius:                  0px;
-	border-color:					@ac;
+  border-color:         @ac;
     children:                       [ inputbar, listview ];
-    spacing:                       	5px;
+    spacing:                        5px;
     padding:                        5px;
 }
 
@@ -252,7 +280,7 @@ element {
     text-color:                     @fg;
     orientation:                    horizontal;
     border-radius:                  0px;
-	padding: 						8px;
+  padding:            8px;
 }
 
 element-icon {
@@ -274,7 +302,7 @@ element-text {
 element selected {
     background-color:               @se;
     text-color:                     @bg;
-	border:							0px 0px 0px 0px;
+  border:             0px 0px 0px 0px;
     border-radius:                  0px;
-    border-color:                  	@ac;
+    border-color:                   @ac;
 }
