@@ -4,7 +4,14 @@ Add syntax highlighting support for rasi config file
 
 The syntax is based on the [rofi-theme man page](https://man.archlinux.org/man/community/rofi/rofi-theme.5.en). (v1.7.2)
 
-![image](https://user-images.githubusercontent.com/34305318/147615642-b53ac720-9681-41dd-adf7-80816a1a5044.png)
+![image](https://user-images.githubusercontent.com/34305318/154119507-a688f9eb-9077-4be5-b314-241eb3f94352.png)
+
+<details>
+<summary>With tree-sitter highlighting:</summary>
+  <img alt="Tree-sitter showcase" src="https://user-images.githubusercontent.com/34305318/154120162-d5d615fb-fbb6-43d9-a271-d4a95e502fd7.png">
+</details>
+
+Colorscheme: [kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
 
 ## Dependencies
 **Optionnal**
