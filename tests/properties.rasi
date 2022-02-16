@@ -148,11 +148,9 @@ inher, other {
 @theme "this-is-a-theme"
 
 @media (min-width:120px) {
-  children: center;
   widget selected.normal {
     children: center;
   }
-  children: center;
 }
 
 /*
