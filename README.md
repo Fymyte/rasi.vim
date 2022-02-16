@@ -29,7 +29,7 @@ Plug 'Fymyte/rasi.vim'
 ```
 
 ### [Packer](https://github.com/wbthomason/packer.nvim)
-```vim
+```lua
 use {
   'Fymyte/rasi.vim',
   ft = 'rasi',
