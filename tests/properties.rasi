@@ -153,9 +153,8 @@ inher, other {
   }
 }
 
-/*
-Mutilines comments
- */
+/* Mutilines
+   comments */
 
 * {
   bg:   rgba(240, 240, 0, 100%);
