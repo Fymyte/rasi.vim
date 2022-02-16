@@ -4,11 +4,11 @@ Add syntax highlighting support for rasi config file
 
 The syntax is based on the [rofi-theme man page](https://man.archlinux.org/man/community/rofi/rofi-theme.5.en). (v1.7.2)
 
-![image](https://user-images.githubusercontent.com/34305318/154119507-a688f9eb-9077-4be5-b314-241eb3f94352.png)
+![image](https://user-images.githubusercontent.com/34305318/154325014-07745a20-de25-4df5-b66a-e767e48c8f38.png)
 
 <details>
 <summary>With tree-sitter highlighting:</summary>
-  <img alt="Tree-sitter showcase" src="https://user-images.githubusercontent.com/34305318/154120162-d5d615fb-fbb6-43d9-a271-d4a95e502fd7.png">
+  <img alt="Tree-sitter showcase" src="https://user-images.githubusercontent.com/34305318/154324309-ca639702-b561-4fcd-8c30-fa12ef4fa10e.png">
 </details>
 
 Colorscheme: [kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
@@ -18,7 +18,9 @@ Colorscheme: [kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
 - [vim-css-color](https://github.com/ap/vim-css-color) for better color support (see [wiki](https://github.com/Fymyte/rasi.vim/wiki/Integration#colors))
 
 ## [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-A parser for rasi has also been created for neovim users at [Fymyte/tree-sitter-rasi](https://github.com/Fymyte/tree-sitter-rasi). 
+A parser for rasi has also been created for neovim users at [Fymyte/tree-sitter-rasi](https://github.com/Fymyte/tree-sitter-rasi).
+The parser doesn't add much highlighting but may recognize some structure that are impossible to express through regex.
+(particularly nested `var`, `env` ...)
 
 See [wiki](https://github.com/Fymyte/rasi.vim/wiki/Integration#treesitter) for integration.
 
