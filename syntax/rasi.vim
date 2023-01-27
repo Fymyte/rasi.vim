@@ -12,24 +12,6 @@ if exists('b:current_syntax')
 endif
 let b:current_syntax = 'rasi'
 
-" Comment {{{
-syn cluster rasiCommentGroup  contains=rasiTodo,rasiBadContinuation
-
-syn region rasiCommentL       start="//" skip="\\$" end="$" keepend contains=@rasiCommentGroup,@Spell
-syn region rasiComment        start="/\*" end="\*/" contains=@rasiCommentGroup,rasiCommentStartError,@Spell fold extend
-
-syn match rasiCommentError    display '\*/'
-
-syn keyword rasiTodo          contained TODO FIXME XXX NOTE
-
-if exists("rasi_minlines")
-  let b:rasi_minlines = rasi_minlines
-else
-  let b:rasi_minlines = 50
-endif
-exec "syn sync ccomment rasiComment minlines=" . b:rasi_minlines
-" }}}
-
 " String {{{
 syn region rasiString    start=+"+ skip=+\\"+ end=+"+ oneline contained
 syn match  rasiCharacter +L\='[^\\]'+ contained
@@ -221,6 +203,25 @@ syn match rasiPropertyId  '^\s*[0-9a-zA-Z-]\+\s*:'me=e-1 contained
 syn match rasiInvPropertyVal ':[^;];\s*\S\+\s*$'ms=s+1,hs=s+1
 syn match rasiPropertyVal ':\s*[^;]\+;\s*$'ms=s+1,hs=s+1 contained contains=@rasiPropertyVals
 " }}}
+
+" Comment {{{
+syn cluster rasiCommentGroup  contains=rasiTodo,rasiBadContinuation
+
+syn region rasiCommentL       start="//" skip="\\$" end="$" keepend contains=@rasiCommentGroup,@Spell
+syn region rasiComment        start="/\*" end="\*/" contains=@rasiCommentGroup,rasiCommentStartError,@Spell fold extend
+
+syn match rasiCommentError    display '\*/'
+
+syn keyword rasiTodo          contained TODO FIXME XXX NOTE
+
+if exists("rasi_minlines")
+  let b:rasi_minlines = rasi_minlines
+else
+  let b:rasi_minlines = 50
+endif
+exec "syn sync ccomment rasiComment minlines=" . b:rasi_minlines
+" }}}
+
 
 
 " Highlighting: {{{
