@@ -197,8 +197,8 @@ syn keyword rasiState         contained normal active urgent
 syn region  rasiThemeSectionContent transparent start="{" end="}" contains=rasiProperty,rasiComment,rasiCommentL,rasiSectionOpenning contained
 " syn region  rasiThemeInnerSectionContent transparent start="{" end="}" contains=rasiProperty,rasiComment,rasiCommentL,rasiThemeInnerSectionOpenning contained
 
-syn match rasiProperty transparent '^\s*\S\+\s*:.*;\s*$' keepend contained contains=rasiPropertyId,rasiInvPropertyId,rasiPropertyVal,rasiThemeInnerSectionOpenning
-syn match rasiInvPropertyId '^[^:]*:'me=e-1 contained
+syn match rasiProperty transparent '^\s*\S\+\s*:.*;\s*$' keepend contained contains=rasiPropertyId,rasiInvPropertyId,rasiPropertyVal,rasiComment,rasiCommentL
+syn match rasiInvPropertyId '^\([^:]\&[^/]\{2}\)*:'me=e-1 contained
 syn match rasiPropertyId  '^\s*[0-9a-zA-Z-]\+\s*:'me=e-1 contained
 syn match rasiInvPropertyVal ':[^;];\s*\S\+\s*$'ms=s+1,hs=s+1
 syn match rasiPropertyVal ':\s*[^;]\+;\s*$'ms=s+1,hs=s+1 contained contains=@rasiPropertyVals
