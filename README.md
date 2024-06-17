@@ -1,3 +1,5 @@
+# DEPRECATED: support for rasi filetype has been merged in vim and neovim and should be available in next release of respective projects.
+
 # rasi.vim - rofi config syntax highlighting for vim
 
 Add syntax highlighting support for rasi config file
